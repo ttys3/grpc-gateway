@@ -69,11 +69,11 @@ var wktSchemas = map[string]schemaCore{
 		Format: "int64",
 	},
 	".google.protobuf.Int64Value": {
-		Type:   "string",
+		Type:   "integer",
 		Format: "int64",
 	},
 	".google.protobuf.UInt64Value": {
-		Type:   "string",
+		Type:   "integer",
 		Format: "uint64",
 	},
 	".google.protobuf.FloatValue": {
@@ -833,12 +833,12 @@ func primitiveSchema(t descriptorpb.FieldDescriptorProto_Type) (ftype, format st
 		//
 		// NOTE: uint64 is not a predefined format of integer type in OpenAPI spec.
 		// So we cannot expect that uint64 is commonly supported by OpenAPI processor.
-		return "string", "uint64", true
+		return "integer", "uint64", true
 	case descriptorpb.FieldDescriptorProto_TYPE_INT32:
 		return "integer", "int32", true
 	case descriptorpb.FieldDescriptorProto_TYPE_FIXED64:
 		// Ditto.
-		return "string", "uint64", true
+		return "integer", "uint64", true
 	case descriptorpb.FieldDescriptorProto_TYPE_FIXED32:
 		// Ditto.
 		return "integer", "int64", true
