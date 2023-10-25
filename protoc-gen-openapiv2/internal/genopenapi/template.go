@@ -826,7 +826,7 @@ func primitiveSchema(t descriptorpb.FieldDescriptorProto_Type) (ftype, format st
 	case descriptorpb.FieldDescriptorProto_TYPE_FLOAT:
 		return "number", "float", true
 	case descriptorpb.FieldDescriptorProto_TYPE_INT64:
-		return "string", "int64", true
+		return "integer", "int64", true
 	case descriptorpb.FieldDescriptorProto_TYPE_UINT64:
 		// 64bit integer types are marshaled as string in the default JSONPb marshaler.
 		// TODO(yugui) Add an option to declare 64bit integers as int64.
@@ -857,11 +857,11 @@ func primitiveSchema(t descriptorpb.FieldDescriptorProto_Type) (ftype, format st
 	case descriptorpb.FieldDescriptorProto_TYPE_SFIXED32:
 		return "integer", "int32", true
 	case descriptorpb.FieldDescriptorProto_TYPE_SFIXED64:
-		return "string", "int64", true
+		return "integer", "int64", true
 	case descriptorpb.FieldDescriptorProto_TYPE_SINT32:
 		return "integer", "int32", true
 	case descriptorpb.FieldDescriptorProto_TYPE_SINT64:
-		return "string", "int64", true
+		return "integer", "int64", true
 	default:
 		return "", "", false
 	}
